@@ -69,8 +69,8 @@ def index(request):
                 reply_text = ('CPU Temperature = '+CPU_temp+'\n'
                                 'CPU Use =' + CPU_usage + '\n'
                                 'RAM Total = ' + str(RAM_total) +' MB\n'
-                                'RAM Used = ' + str(RAM_used) + ' MB\n')
-                                'RAM Free = ' + str(RAM_free) + ' MB\n')
+                                'RAM Used = ' + str(RAM_used) + ' MB\n'
+                                'RAM Free = ' + str(RAM_free) + ' MB\n'
                                 'DISK Total Space = ' + str(DISK_total) + 'B\n'
                                 'DISK Used Space = ' + str(DISK_used) + 'B\n'
                                 'DISK Used Percentage = ' + str(DISK_perc)

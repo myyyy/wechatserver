@@ -1,0 +1,25 @@
+top: failed tty get
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 13 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+August 09, 2016 - 06:05:36
+Django version 1.10, using settings 'wechatserver.settings'
+Starting development server at http://127.0.0.1:1121/
+Quit the server with CONTROL-C.
+top: failed tty get
+[09/Aug/2016 06:06:18] "POST /wechat/?signature=1395c85247eb3f74d3e337226b6524489d0fb873&timestamp=1470722778&nonce=613357152&openid=oWYtjwcb6JiGduPVF-Hx0VFW8mp8 HTTP/1.0" 200 295
+top: failed tty get
+[09/Aug/2016 06:06:26] "POST /wechat/?signature=99c27bb5d539d70693441ef5083dac2cff84189b&timestamp=1470722786&nonce=957490661&openid=oWYtjwcb6JiGduPVF-Hx0VFW8mp8 HTTP/1.0" 200 441
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 13 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+August 09, 2016 - 06:06:09
+Django version 1.10, using settings 'wechatserver.settings'
+Starting development server at http://127.0.0.1:1121/
+Quit the server with CONTROL-C.
