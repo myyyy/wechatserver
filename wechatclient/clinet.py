@@ -33,6 +33,8 @@ class IndexHandler(tornado.web.RequestHandler):
     def post(self):
         body = self.request.body
         print (body)
+        msg = parse_message(xml)
+        print (msg.content)
 
 
 if __name__ == '__main__':
