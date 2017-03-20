@@ -12,6 +12,12 @@ from wechatpy.parser import parse_message
 import json
 from wechatpy.utils import check_signature
 from wechatpy.exceptions import InvalidSignatureException
+import sys
+from wechatpy import create_reply
+from storage.machine import Machine
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
 TOKEN = '123456'
 APPID = 'wxecb5391ec8a58227'
 SECRET = 'fa32576b9daa6fd020c0104e6092196a'
@@ -20,23 +26,28 @@ SECRET = 'fa32576b9daa6fd020c0104e6092196a'
 
 class IndexHandler(tornado.web.RequestHandler):
 
-
     def get(self):
-        signature = self.get_argument('signature','')
-        timestamp = self.get_argument('timestamp','')
-        nonce = self.get_argument('nonce','')
+        signature = self.get_argument('signature', '')
+        timestamp = self.get_argument('timestamp', '')
+        nonce = self.get_argument('nonce', '')
         client = WeChatClient(APPID, SECRET)
         print (client)
         try:
             check_signature(TOKEN, signature, timestamp, nonce)
         except InvalidSignatureException as e:
             self.write(str(e))
+
     def post(self):
         xml = self.request.body
         print (xml)
         msg = parse_message(xml)
         print (msg.content)
-
+        if msg.content in '机器状态':
+            empty_reply = create_reply('')
+            data = Machine().fast_data
+            _reply = create_reply(data)
+            print(_reply)
+            self.write({'content_type':_reply})
 
 if __name__ == '__main__':
     app = tornado.web.Application(
@@ -48,4 +59,3 @@ if __name__ == '__main__':
     app.listen(1121)
     print('server start on 127.0.0.1:1121')
     tornado.ioloop.IOLoop.instance().start()
-
