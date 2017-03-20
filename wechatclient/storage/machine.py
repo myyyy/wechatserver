@@ -15,7 +15,7 @@ class Machine(object):
         self.ram_total = round(int(self.ram_stats[0]) / 1000, 1)
         self.ram_used = round(int(self.ram_stats[1]) / 1000, 1)
         self.ram_free = round(int(self.ram_stats[2]) / 1000, 1)
-        self.fast_data = fast_reply()
+        self.fast_data = self.fast_reply()
     def fast_reply(self):
 
         return [
