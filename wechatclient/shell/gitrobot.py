@@ -4,7 +4,8 @@ import time
 def dev_robot():
 	path = "/home/pi/code/wechatserver/wechatclient/"
 	os.chdir(path)
-	val = os.system("git commit -am'gitrobot'")
+	os.system("git fetch  --all")
+	os.system("git reset --hard tornado")
 	val = os.system("git pull")
 	os.system("python clinet.py")
 
