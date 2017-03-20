@@ -32,8 +32,8 @@ class IndexHandler(tornado.web.RequestHandler):
         except InvalidSignatureException as e:
             self.write(str(e))
     def post(self):
-        body = self.request.body
-        print (body)
+        xml = self.request.body
+        print (xml)
         msg = parse_message(xml)
         print (msg.content)
 
