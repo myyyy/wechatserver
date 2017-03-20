@@ -14,6 +14,6 @@ if __name__ == '__main__':
 	
 	while True:
 		print(1)
-		time.sleep(100) 
+		time.sleep(10) 
 		cas_val = dev_robot()
 	
