@@ -8,6 +8,7 @@ import tornado.ioloop
 from tornado import gen
 from tornado.gen import coroutine
 from wechatpy import WeChatClient
+from wechatpy.parser import parse_message
 import json
 from wechatpy.utils import check_signature
 from wechatpy.exceptions import InvalidSignatureException
