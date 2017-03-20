@@ -14,5 +14,5 @@ if __name__ == '__main__':
 	while True:
 		time.sleep(10) 
 		cas_val = dev_robot()
-		print val
+		print cas_val
 	
