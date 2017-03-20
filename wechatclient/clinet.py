@@ -13,7 +13,6 @@ import json
 from wechatpy.utils import check_signature
 from wechatpy.exceptions import InvalidSignatureException
 import sys
-from wechatpy import create_reply
 from storage.machine import Machine
 reload(sys)
 sys.setdefaultencoding("utf-8")
@@ -43,9 +42,13 @@ class IndexHandler(tornado.web.RequestHandler):
         msg = parse_message(xml)
         print (msg.content)
         if msg.content in 'status':
-            empty_reply = create_reply('')
             data = Machine().fast_data
-            _reply = create_reply(data)
+
+            from wechatpy.replies import TextReply
+            reply = TextReply()
+            reply.type = 'text'
+            reply.content = data
+            _reply = reply.render()
             print(_reply)
             self.write({'content_type':_reply})
 
