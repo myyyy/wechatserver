@@ -39,16 +39,11 @@ class IndexHandler(tornado.web.RequestHandler):
 
     def post(self):
         xml = self.request.body
-        print (xml)
         msg = parse_message(xml)
-        print (msg.content)
         if msg.content in 'status':
             data = Machine().fast_data
             reply = TextReply(content=data, message=msg)
-            # reply = TextReply()
-            # reply.content = data
             _reply = reply.render()
-            print(_reply)
             self.write(_reply)
 
 if __name__ == '__main__':
