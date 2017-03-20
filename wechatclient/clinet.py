@@ -42,7 +42,7 @@ class IndexHandler(tornado.web.RequestHandler):
         print (xml)
         msg = parse_message(xml)
         print (msg.content)
-        if msg.content in '机器状态':
+        if msg.content in 'status':
             empty_reply = create_reply('')
             data = Machine().fast_data
             _reply = create_reply(data)
