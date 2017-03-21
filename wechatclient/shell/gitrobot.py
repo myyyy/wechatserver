@@ -19,9 +19,11 @@ def dev_robot():
         raise e
 
 
-if __name__ == '__main__':
+def timer():
+	while True:
+		time.sleep(10)
+		cas_val = dev_robot()
+		print (cas_val)
 
-    while True:
-        time.sleep(10)
-        cas_val = dev_robot()
-        print cas_val
+if __name__ == '__main__':
+	timer()

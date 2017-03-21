@@ -45,10 +45,10 @@ class IndexHandler(tornado.web.RequestHandler):
             data = Machine().fast_data
             reply = TextReply(content=data, message=msg)
             _reply = reply.render()
-            self.write(_reply)
+            self.write(reply)
         else:
             robot = TuLingRobot(msg.content)
-            self.write(robot._reply)
+            self.write(robot.reply)
 
 
 if __name__ == '__main__':
