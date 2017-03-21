@@ -48,7 +48,8 @@ class IndexHandler(tornado.web.RequestHandler):
             self.write(reply)
         else:
             robot = TuLingRobot(msg.content)
-            self.write(robot.reply)
+            reply = TextReply(content=robot.reply, message=msg)
+            self.write(reply)
 
 
 if __name__ == '__main__':
