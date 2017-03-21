@@ -5,7 +5,7 @@ import time
 
 def app_timer():
 	path = "/home/pi/code/wechatserver/wechatclient/"
-    os.chdir(path)
+   	os.chdir(path)
 	while True:
 		time.sleep(10)
 		try:
