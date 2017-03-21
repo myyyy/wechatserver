@@ -14,6 +14,7 @@ from wechatpy.utils import check_signature
 from wechatpy.exceptions import InvalidSignatureException
 import sys
 from storage.machine import Machine
+from storage.robot import TuLingRobot
 from wechatpy.replies import TextReply
 reload(sys)
 sys.setdefaultencoding("utf-8")
@@ -45,6 +46,10 @@ class IndexHandler(tornado.web.RequestHandler):
             reply = TextReply(content=data, message=msg)
             _reply = reply.render()
             self.write(_reply)
+        else:
+            robot = TuLingRobot(msg.content)
+            self.write(robot._reply)
+
 
 if __name__ == '__main__':
     app = tornado.web.Application(
