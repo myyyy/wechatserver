@@ -45,7 +45,7 @@ class IndexHandler(tornado.web.RequestHandler):
             data = Machine().fast_data
             reply = TextReply(content=data, message=msg)
             _reply = reply.render()
-            self.write(reply)
+            self.write(_reply)
         else:
             robot = TuLingRobot(msg.content)
             reply = TextReply(content=robot.reply, message=msg)
