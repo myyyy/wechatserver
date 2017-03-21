@@ -10,13 +10,9 @@ def dev_robot():
         os.system("git fetch  --all")
         os.system("git reset --hard tornado")
         os.system("git pull")
-    except Exception as e:
-        raise
-
-    try:
         os.system("python clinet.py")
     except Exception as e:
-        raise e
+        raise
 
 
 def timer():
