@@ -10,16 +10,23 @@ def dev_robot():
         os.system("git fetch  --all")
         os.system("git reset --hard tornado")
         os.system("git pull")
-        os.system("python clinet.py")
     except Exception as e:
         raise
 
 
-def timer():
+def git_timer():
 	while True:
 		time.sleep(10)
 		cas_val = dev_robot()
 		print (cas_val)
 
+def app_timer():
+	path = "/home/pi/code/wechatserver/wechatclient/"
+    os.chdir(path)
+	while True:
+		time.sleep(10)
+		os.system("python clinet.py")
+
 if __name__ == '__main__':
-	timer()
+	git_timer()
+	app_timer()
