@@ -21,8 +21,8 @@ class Machine(object):
 
         return [
             {
-                'CPU Temperature = ' + self.cpu_temp + '\n'
-                'CPU Use =' + self.cpu_usage + '\n'
+                'CPU Temperature = ' + self.cpu_temp + '\n',
+                'CPU Use =' + self.cpu_usage + '\n',
                 'RAM Total = ' + str(self.ram_stats) + ' MB\n'
             }
             # add more ...
