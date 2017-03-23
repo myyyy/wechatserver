@@ -5,6 +5,7 @@ ROBOTURL = u'http://www.tuling123.com/openapi/api'
 ROBOTKEY = "f4867f649f20418eb1e93f4b54149f7e"
 UID = '123456'
 
+
 class TuLingRobot(object):
     """docstring for TulingRobot"""
 
@@ -13,7 +14,7 @@ class TuLingRobot(object):
         self.msg = self.get_message(arg)
         self.reply = [
             {
-                'title': msg.get('text', '')
+                'title': msg.get('text', ''),
                 'url': msg.get('url', '')
             }
         ]
