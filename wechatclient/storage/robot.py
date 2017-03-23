@@ -14,8 +14,8 @@ class TuLingRobot(object):
         self.msg = self.get_message(arg)
         self.reply = [
             {
-                'title': msg.get('text', ''),
-                'url': msg.get('url', '')
+                'title': self.msg.get('text', ''),
+                'url': self.msg.get('url', '')
             }
         ]
 
