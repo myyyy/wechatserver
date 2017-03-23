@@ -33,7 +33,6 @@ class IndexHandler(tornado.web.RequestHandler):
         timestamp = self.get_argument('timestamp', '')
         nonce = self.get_argument('nonce', '')
         client = WeChatClient(APPID, SECRET)
-        print (client)
         try:
             check_signature(TOKEN, signature, timestamp, nonce)
         except InvalidSignatureException as e:
@@ -51,7 +50,6 @@ class IndexHandler(tornado.web.RequestHandler):
         else:
             robot = TuLingRobot(msg.content)
             reply = create_reply(robot.reply, message=msg)
-            print (reply)
             _reply = reply.render()
             self.write(_reply)
 
