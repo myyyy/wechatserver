@@ -44,14 +44,12 @@ class IndexHandler(tornado.web.RequestHandler):
         msg = parse_message(xml)
         if msg.content in 'status':
             data = Machine().fast_data
-            reply = TextReply(content=data, message=msg)
             reply = create_reply(data, message=msg)
             _reply = reply.render()
             self.write(_reply)
         else:
             robot = TuLingRobot(msg.content)
-            reply = TextReply(content=robot.reply, message=msg)
-            print (reply)
+            reply = create_reply(datarobot.reply, message=msg)
             _reply = reply.render()
             self.write(_reply)
 
