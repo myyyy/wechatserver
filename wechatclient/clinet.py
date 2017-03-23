@@ -45,16 +45,6 @@ class IndexHandler(tornado.web.RequestHandler):
         if msg.content in 'status':
             data = Machine().fast_data
             reply = TextReply(content=data, message=msg)
-            articles = [
-                {
-                    'title': 'test',
-                    'description': 'test',
-                    'image': 'image url',
-                    'url': 'url'
-                },
-                # add more ...
-            ]
-            print (articles)
             print (data)
             reply = create_reply(data, message=msg)
             _reply = reply.render()
