@@ -54,8 +54,8 @@ class IndexHandler(tornado.web.RequestHandler):
                 },
                 # add more ...
             ]
-            print type(articles)
-            print type(data)
+            print (type(articles))
+            print (type(data))
             reply = create_reply(articles, message=msg)
             _reply = reply.render()
             self.write(_reply)
