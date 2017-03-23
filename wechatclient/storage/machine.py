@@ -18,12 +18,13 @@ class Machine(object):
         self.fast_data = self.fast_reply()
 
     def fast_reply(self):
-
+        info = 'CPU Temperature = ': self.cpu_temp + '\n'+
+            'CPU Use =' + self.cpu_usage + '\n'+
+            'RAM Total = ' + str(self.ram_stats) + ' MB\n'
         return [
             {
-                'CPU Temperature = ' + self.cpu_temp + '\n',
-                'CPU Use =' + self.cpu_usage + '\n',
-                'RAM Total = ' + str(self.ram_stats) + ' MB\n'
+                'title': 'Machine',
+                'description': info,
             }
             # add more ...
         ]
