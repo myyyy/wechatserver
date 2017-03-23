@@ -11,20 +11,20 @@ class TuLingRobot(object):
 
     def __init__(self, arg=None):
         self.arg = arg
-        self.msg = self.get_message(arg)
-        self.reply = [
-            {
-                'title': self.msg.get('text', ''),
-                'url': self.msg.get('url', '')
-            }
-        ]
+        self.reply = self.get_message(arg)
 
     def get_message(self, arg):
         data = {'info': arg, 'key': ROBOTKEY, "userid": UID
                 }
         response = requests.get(ROBOTURL, params=data)
         msg = response.json()
-        return msg
+        result = [
+            {
+                'title': msg.get('text', ''),
+                'url': msg.get('url', '')
+            }
+        ]
+        return result
 
 if __name__ == '__main__':
     tu = TuLingRobot('你是谁')
