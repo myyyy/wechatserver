@@ -16,6 +16,7 @@ import sys
 from storage.machine import Machine
 from storage.robot import TuLingRobot
 from wechatpy.replies import TextReply
+from wechatpy import create_reply
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
@@ -45,6 +46,7 @@ class IndexHandler(tornado.web.RequestHandler):
             data = Machine().fast_data
             reply = TextReply(content=data, message=msg)
             _reply = reply.render()
+            _reply = create_reply(data, message=message)
             self.write(_reply)
         else:
             robot = TuLingRobot(msg.content)
