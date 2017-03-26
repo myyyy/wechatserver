@@ -12,6 +12,7 @@ class BaseHandler(tornado.web.RequestHandler):
     _USER_ID = '_USER_ID'
     _ADMIN_ID = '_ADMIN_ID'
     client = property(lambda self: self.get_client())
+    msg = get_msg()
 
     def get_client(self):
         client = WeChatClient(APPID, SECRET)
@@ -51,7 +52,7 @@ class BaseHandler(tornado.web.RequestHandler):
         })
         return client
 
-    def post(self):
+    def get_msg(self):
         xml = self.request.body
         msg = parse_message(xml)
         try:

@@ -6,7 +6,7 @@ import tornado
 import tornado.web
 import tornado.ioloop
 from logic.wechat import BaseHandler
-from wechatpy.parser import parse_message
+
 from wechatpy.utils import check_signature
 from wechatpy.exceptions import InvalidSignatureException
 from storage.machine import Machine
@@ -31,8 +31,7 @@ class IndexHandler(BaseHandler):
             self.write(str(e))
 
     def post(self):
-        xml = self.request.body
-        msg = parse_message(xml)
+        msg = self.msg
         if msg.content in 'status':
             data = Machine().fast_data
             reply = TextReply(content=data, message=msg)
