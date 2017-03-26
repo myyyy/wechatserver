@@ -30,7 +30,7 @@ class IndexHandler(BaseHandler):
 
     def post(self):
         reply = self.reply
-        self.write(_reply)
+        self.write(reply)
 
 
 if __name__ == '__main__':
