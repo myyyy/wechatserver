@@ -34,7 +34,7 @@ class IndexHandler(BaseHandler):
 if __name__ == '__main__':
     app = tornado.web.Application(
         handlers=[
-            (r'/wechat/', IndexHandler),
+            (r'/wechat', IndexHandler),
         ],
         debug=True,
     )
