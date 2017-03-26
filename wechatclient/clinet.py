@@ -34,7 +34,7 @@ class IndexHandler(BaseHandler):
         msg = self.msg
         # import pdb
         # pdb.set_trace()
-        if msg.event == 'subscribe'
+        if msg.event == 'subscribe':
             reply = create_reply('感谢您的关注', message=msg)
             _reply = reply.render()
             self.write(_reply)
