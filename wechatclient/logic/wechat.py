@@ -57,7 +57,7 @@ class BaseHandler(tornado.web.RequestHandler):
         xml = self.request.body
         msg = parse_message(xml)
         if msg.type == 'text':
-            reply = get_localizer(msg.event).reply(msg)
+            reply = get_localizer(msg.type).reply(msg)
         if msg.type == 'event':
             reply = get_localizer(msg.event).reply(msg)
         return reply
