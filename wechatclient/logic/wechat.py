@@ -55,9 +55,4 @@ class BaseHandler(tornado.web.RequestHandler):
     def get_msg(self):
         xml = self.request.body
         msg = parse_message(xml)
-        try:
-            if msg.event == 'subscribe':
-                reply = create_reply('感谢关注', message=msg)
-                self.write(_reply)
-        except Exception as e:
-            return msg
+        return msg
