@@ -32,9 +32,8 @@ class IndexHandler(BaseHandler):
 
     def post(self):
         msg = self.msg
-        if msg.type == 'subscribe':
-            reply = create_reply('感谢关注', message=msg)
-            self.write(_reply)
+        import pdb
+        pdb.set_trace()
         if msg.content in 'status':
             data = Machine().fast_data
             reply = TextReply(content=data, message=msg)
