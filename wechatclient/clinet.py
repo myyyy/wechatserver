@@ -5,34 +5,26 @@ import json
 import tornado
 import tornado.web
 import tornado.ioloop
-from tornado import gen
-from tornado.gen import coroutine
-from wechatpy import WeChatClient
+from logic.wechat import BaseHandler
 from wechatpy.parser import parse_message
-import json
 from wechatpy.utils import check_signature
 from wechatpy.exceptions import InvalidSignatureException
-import sys
 from storage.machine import Machine
 from storage.robot import TuLingRobot
 from wechatpy.replies import TextReply
 from wechatpy import create_reply
+import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-TOKEN = '123456'
-APPID = 'wxecb5391ec8a58227'
-SECRET = 'fa32576b9daa6fd020c0104e6092196a'
-# OPENID = 'ozJS1syaqn5ztglMsr8ceH8o2zCQ'
 
-
-class IndexHandler(tornado.web.RequestHandler):
+class IndexHandler(BaseHandler):
 
     def get(self):
         signature = self.get_argument('signature', '')
         timestamp = self.get_argument('timestamp', '')
         nonce = self.get_argument('nonce', '')
-        client = WeChatClient(APPID, SECRET)
+        client = self.client
         try:
             check_signature(TOKEN, signature, timestamp, nonce)
         except InvalidSignatureException as e:
