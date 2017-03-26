@@ -6,7 +6,7 @@ APPID = 'wxecb5391ec8a58227'
 SECRET = 'fa32576b9daa6fd020c0104e6092196a'
 
 
-class BaseHandler(ContextHandler, tornado.web.RequestHandler):
+class BaseHandler(tornado.web.RequestHandler):
 
     _USER_ID = '_USER_ID'
     _ADMIN_ID = '_ADMIN_ID'
