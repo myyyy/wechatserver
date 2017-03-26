@@ -46,14 +46,6 @@ class BaseHandler(tornado.web.RequestHandler):
 			            ]
 			        }
 			    ],
-			    "matchrule":{
-			      "group_id":"2",
-			      "sex":"1",
-			      "country":"中国",
-			      "province":"广东",
-			      "city":"广州",
-			      "client_platform_type":"2"
-			    }
 			})
         return client
 
