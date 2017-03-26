@@ -13,16 +13,6 @@ import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-from wechatpy import WeChatClient
-
-client = WeChatClient('app_id', 'secret')
-user = client.user.get('user id')
-menu = client.menu.get()
-client.message.send_text('user id', 'content')
-# 以此类推，参见下面的 API 说明
-# client.media.xxx()
-# client.group.xxx()
-
 
 class IndexHandler(BaseHandler):
 
