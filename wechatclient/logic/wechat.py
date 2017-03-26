@@ -6,6 +6,9 @@ from event import get_localizer
 TOKEN = '123456'
 APPID = 'wxecb5391ec8a58227'
 SECRET = 'fa32576b9daa6fd020c0104e6092196a'
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 
 class BaseHandler(tornado.web.RequestHandler):
