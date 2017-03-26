@@ -32,8 +32,12 @@ class IndexHandler(BaseHandler):
 
     def post(self):
         msg = self.msg
-        import pdb
-        pdb.set_trace()
+        # import pdb
+        # pdb.set_trace()
+        if msg.event == 'subscribe'
+            reply = create_reply('感谢您的关注', message=msg)
+            _reply = reply.render()
+            self.write(_reply)
         if msg.content in 'status':
             data = Machine().fast_data
             reply = TextReply(content=data, message=msg)
@@ -44,7 +48,7 @@ class IndexHandler(BaseHandler):
             robot = TuLingRobot(msg.content)
             reply = create_reply(robot.reply, message=msg)
             _reply = reply.render()
-            self.write(_reply)
+        self.write(_reply)
 
 
 if __name__ == '__main__':
