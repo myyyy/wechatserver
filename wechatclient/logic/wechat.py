@@ -6,10 +6,11 @@ APPID = 'wxecb5391ec8a58227'
 SECRET = 'fa32576b9daa6fd020c0104e6092196a'
 
 
-class BaseHandler(tornado.web.RequestHandler):
+class BaseHandler(ContextHandler, tornado.web.RequestHandler):
 
-    def __init__(self, application, request, **kwargs):
-        self.client = self.get_client()
+    _USER_ID = '_USER_ID'
+    _ADMIN_ID = '_ADMIN_ID'
+    client = property(lambda self: self.get_client())
 
     def get_client(self):
         client = WeChatClient(APPID, SECRET)
