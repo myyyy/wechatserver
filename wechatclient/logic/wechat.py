@@ -20,7 +20,7 @@ class BaseHandler(tornado.web.RequestHandler):
 
     def get_client(self):
         client = WeChatClient(APPID, SECRET)
-        client.menu.create({
+        a = client.menu.create({
             "button": [
                 {
                     "type": "click",
@@ -54,6 +54,8 @@ class BaseHandler(tornado.web.RequestHandler):
                 }
             ],
         })
+        import pdb
+        pdb.set_trace()
         return client
 
     def get_reply(self):

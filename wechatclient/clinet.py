@@ -21,9 +21,6 @@ class IndexHandler(BaseHandler):
         timestamp = self.get_argument('timestamp', '')
         nonce = self.get_argument('nonce', '')
         client = self.client
-        user = client.user.get('openid')
-        res = client.menu.try_match(user.get('openid', ''))
-        print (res)
         try:
             check_signature(TOKEN, signature, timestamp, nonce)
         except InvalidSignatureException as e:
