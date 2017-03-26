@@ -17,13 +17,13 @@ class BaseHandler(tornado.web.RequestHandler):
 
     def get_client(self):
         client = WeChatClient(APPID, SECRET)
-        client.menu.add_conditional({
+        client.menu.create({
             "button": [
                 {
-                                    "type": "click",
-                                    "name": "阅读",
-                                    "key": "V1001_TODAY_READ"
-                                    },
+                    "type": "click",
+                    "name": "阅读",
+                    "key": "V1001_TODAY_READ"
+                },
                 {
                     "type": "click",
                     "name": "音乐",

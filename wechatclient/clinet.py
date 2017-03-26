@@ -13,15 +13,27 @@ import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
+from wechatpy import WeChatClient
+
+client = WeChatClient('app_id', 'secret')
+user = client.user.get('user id')
+menu = client.menu.get()
+client.message.send_text('user id', 'content')
+# 以此类推，参见下面的 API 说明
+# client.media.xxx()
+# client.group.xxx()
+
 
 class IndexHandler(BaseHandler):
 
     def get(self):
-        print ('aaa')
         signature = self.get_argument('signature', '')
         timestamp = self.get_argument('timestamp', '')
         nonce = self.get_argument('nonce', '')
         client = self.client
+        user = client.user.get('openid')
+        res = client.menu.try_match(user.get('openid', ''))
+        print (res)
         try:
             check_signature(TOKEN, signature, timestamp, nonce)
         except InvalidSignatureException as e:
