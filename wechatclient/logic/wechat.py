@@ -12,7 +12,7 @@ class BaseHandler(tornado.web.RequestHandler):
     _USER_ID = '_USER_ID'
     _ADMIN_ID = '_ADMIN_ID'
     client = property(lambda self: self.get_client())
-    msg = get_msg()
+    msg = property(lambda self: self.get_msg())
 
     def get_client(self):
         client = WeChatClient(APPID, SECRET)
