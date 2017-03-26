@@ -32,8 +32,8 @@ class IndexHandler(BaseHandler):
 
     def post(self):
         msg = self.msg
-        import pdb
-        pdb.set_trace()
+        # import pdb
+        # pdb.set_trace()
         if msg.event == 'subscribe':
             print ('aaaa')
             reply = create_reply('感谢您的关注', message=msg)
