@@ -9,8 +9,6 @@ from logic.wechat import BaseHandler
 
 from wechatpy.utils import check_signature
 from wechatpy.exceptions import InvalidSignatureException
-
-
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
@@ -19,6 +17,7 @@ sys.setdefaultencoding("utf-8")
 class IndexHandler(BaseHandler):
 
     def get(self):
+        print ('aaa')
         signature = self.get_argument('signature', '')
         timestamp = self.get_argument('timestamp', '')
         nonce = self.get_argument('nonce', '')
