@@ -25,7 +25,26 @@ class BaseHandler(object):
                     "name": "音乐",
                     "key": "V1001_TODAY_MUSIC"
                 },
-
+                {
+                    "name": "时光",
+                    "sub_button": [
+                        {
+                            "type": "view",
+                            "name": "故事",
+                            "url": "http://www.soso.com/"
+                        },
+                        {
+                            "type": "view",
+                            "name": "再见",
+                            "url": "http://v.qq.com/"
+                        },
+                        {
+                            "type": "click",
+                            "name": "关于我们",
+                            "key": "ABOUT_US"
+                        }
+                    ]
+                }
             ],
         })
 
