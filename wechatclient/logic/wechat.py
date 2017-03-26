@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 import tornado.web
+from wechatpy.parser import parse_message
 from wechatpy import WeChatClient
 TOKEN = '123456'
 APPID = 'wxecb5391ec8a58227'
@@ -49,3 +50,13 @@ class BaseHandler(tornado.web.RequestHandler):
             ],
         })
         return client
+
+    def post(self):
+        xml = self.request.body
+        msg = parse_message(xml)
+        try:
+            if msg.event == 'subscribe':
+                reply = create_reply('感谢关注', message=msg)
+                self.write(_reply)
+        except Exception as e:
+            return msg
