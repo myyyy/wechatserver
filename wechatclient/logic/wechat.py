@@ -19,44 +19,42 @@ class BaseHandler(tornado.web.RequestHandler):
     reply = property(lambda self: self.get_reply())
 
     def get_client(self):
-        client = WeChatClient(APPID, SECRET)
-        a = client.menu.create({
-            "button": [
-                {
-                    "type": "click",
-                    "name": "阅读",
-                    "key": "V1001_TODAY_READ"
-                },
-                {
-                    "type": "click",
-                    "name": "音乐",
-                    "key": "V1001_TODAY_MUSIC"
-                },
-                {
-                    "name": "时光",
-                    "sub_button": [
-                        {
-                            "type": "view",
-                            "name": "故事",
-                            "url": "http://www.soso.com/"
-                        },
-                        {
-                            "type": "view",
-                            "name": "再见",
-                            "url": "http://v.qq.com/"
-                        },
-                        {
-                            "type": "click",
-                            "name": "关于我们",
-                            "key": "ABOUT_US"
-                        }
-                    ]
-                }
-            ],
-        })
-        import pdb
-        pdb.set_trace()
-        return client
+        # client = WeChatClient(APPID, SECRET)
+        # a = client.menu.create({
+        #     "button": [
+        #         {
+        #             "type": "click",
+        #             "name": "阅读",
+        #             "key": "V1001_TODAY_READ"
+        #         },
+        #         {
+        #             "type": "click",
+        #             "name": "音乐",
+        #             "key": "V1001_TODAY_MUSIC"
+        #         },
+        #         {
+        #             "name": "时光",
+        #             "sub_button": [
+        #                 {
+        #                     "type": "view",
+        #                     "name": "故事",
+        #                     "url": "http://www.soso.com/"
+        #                 },
+        #                 {
+        #                     "type": "view",
+        #                     "name": "再见",
+        #                     "url": "http://v.qq.com/"
+        #                 },
+        #                 {
+        #                     "type": "click",
+        #                     "name": "关于我们",
+        #                     "key": "ABOUT_US"
+        #                 }
+        #             ]
+        #         }
+        #     ],
+        # })
+        return None
 
     def get_reply(self):
         xml = self.request.body
