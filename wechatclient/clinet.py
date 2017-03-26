@@ -9,10 +9,8 @@ from logic.wechat import BaseHandler
 
 from wechatpy.utils import check_signature
 from wechatpy.exceptions import InvalidSignatureException
-from storage.machine import Machine
-from storage.robot import TuLingRobot
-from wechatpy.replies import TextReply
-from wechatpy import create_reply
+
+
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
@@ -31,24 +29,8 @@ class IndexHandler(BaseHandler):
             self.write(str(e))
 
     def post(self):
-        msg = self.msg
-        import pdb
-        pdb.set_trace()
-        if msg.event == 'subscribe':
-            reply = create_reply('感谢您的关注', message=msg)
-            _reply = reply.render()
-            self.write(_reply)
-        elif msg.content in 'status':
-            data = Machine().fast_data
-            reply = TextReply(content=data, message=msg)
-            reply = create_reply(data, message=msg)
-            _reply = reply.render()
-            self.write(_reply)
-        else:
-            robot = TuLingRobot(msg.content)
-            reply = create_reply(robot.reply, message=msg)
-            _reply = reply.render()
-            self.write(_reply)
+        reply = self.reply
+        self.write(_reply)
 
 
 if __name__ == '__main__':
