@@ -11,7 +11,7 @@ class BaseHandler(tornado.web.RequestHandler):
     def __init__(self, application, request, **kwargs):
         self.client = self.get_client()
 
-    def get_client():
+    def get_client(self):
         client = WeChatClient(APPID, SECRET)
         client.menu.add_conditional({
             "button": [
