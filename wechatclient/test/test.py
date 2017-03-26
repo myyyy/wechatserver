@@ -18,13 +18,14 @@ class BaseHandler(object):
                 {
                     "type": "click",
                     "name": "阅读",
-                    "key": "V1001_TODAY_READ",
+                    "key": "V1001_TODAY_READ"
                 },
                 {
                     "type": "click",
                     "name": "音乐",
-                    "key": "V1001_TODAY_MUSIC",
+                    "key": "V1001_TODAY_MUSIC"
                 },
+
             ],
         })
 

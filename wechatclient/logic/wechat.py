@@ -42,7 +42,7 @@ class BaseHandler(tornado.web.RequestHandler):
                         },
                         {
                             "type": "view",
-                            "name": "流年",
+                            "name": "再见",
                             "url": "http://v.qq.com/"
                         },
                         {
