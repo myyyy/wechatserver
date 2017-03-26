@@ -13,7 +13,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-
+signature=d82dfa17eaa5915cb54281bb801dd20ad35b60b7&echostr=435840677026719564&timestamp=1490544384&nonce=347553633
 class IndexHandler(BaseHandler):
 
     def get(self):
@@ -34,7 +34,7 @@ class IndexHandler(BaseHandler):
 if __name__ == '__main__':
     app = tornado.web.Application(
         handlers=[
-            (r'/wechat', IndexHandler),
+            (r'/wechat/', IndexHandler),
         ],
         debug=True,
     )
