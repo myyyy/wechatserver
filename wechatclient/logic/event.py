@@ -48,8 +48,6 @@ class ClickEvent(object):
 
     def reply(self, msg):
         if msg.key == 'TODAY_STATUS':
-            import pdb
-            pdb.set_trace()
             data = Machine().fast_data
             reply = TextReply(content=data, message=msg)
             reply = create_reply(data, message=msg)
