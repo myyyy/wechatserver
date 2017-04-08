@@ -18,30 +18,35 @@ class BaseHandler(object):
                 {
                     "type": "click",
                     "name": "阅读",
-                    "key": "V1001_TODAY_READ"
+                    "key": "TODAY_READ"
                 },
                 {
                     "type": "click",
                     "name": "音乐",
-                    "key": "V1001_TODAY_MUSIC"
+                    "key": "TODAY_MUSIC"
                 },
                 {
                     "name": "时光",
                     "sub_button": [
                         {
+                            "type": "click",
+                            "name": "状态",
+                            "key": "TODAY_STATUS"
+                        },
+                        {
                             "type": "view",
                             "name": "故事",
-                            "url": "http://www.soso.com/"
+                            "url": "http://wufazhuce.com/"
                         },
                         {
                             "type": "view",
                             "name": "再见",
-                            "url": "http://v.qq.com/"
+                            "url": "http://byetimes.com/"
                         },
                         {
                             "type": "click",
                             "name": "关于我们",
-                            "key": "ABOUT_US"
+                            "key": "http://suyafei.com/"
                         }
                     ]
                 }
