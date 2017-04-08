@@ -66,7 +66,7 @@ class Machine(object):
 
     # Return % of cpu used by user as a character string
     def getcpuuse(self):
-        return(str(os.popen("top -n1 | awk '/cpu\(s\):/ {print $2}'").readline().strip()))
+        return(str(os.popen("top -n1 |awk '/Cpu\(s\):/ {print $2}'").readline().strip()))
 
     # Return information about disk space as a list (unit included)
     # Index 0: total disk space
