@@ -59,6 +59,8 @@ class ClickEvent(object):
 def get_localizer(event="subscribe", msg='msg'):
     """The factory method"""
     print (msg)
+    import pdb
+    pdb.set_trace()
     languages = dict(subscribe=SubscribeEvent, unsubscribe=UnsubscribeEvent,
                      subscribe_scan=SubscribeScanEvent, text=TextEvent, click=ClickEvent)
     return languages[event](msg)
