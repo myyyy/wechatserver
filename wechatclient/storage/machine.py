@@ -6,19 +6,39 @@ class Machine(object):
     """docstring for ClassName"""
 
     def __init__(self):
-        # cpu informatiom
         self.cpu_temp = self.getcputemperature()
         self.cpu_usage = self.getcpuuse()
-        # ram information
-        # Output is in kb, here I convert it in Mb for readability
         self.ram_stats = self.getraminfo()
-        self.ram_total = round(int(self.ram_stats[0]) / 1000, 1)
-        self.ram_used = round(int(self.ram_stats[1]) / 1000, 1)
-        self.ram_free = round(int(self.ram_stats[2]) / 1000, 1)
         self.fast_data = self.fast_reply()
+        self.disk_space = self.get_diskspace()
 
     def fast_reply(self):
-        info = 'CPU Temperature = ' + self.cpu_temp + '\n'+'CPU Use =' + self.cpu_usage + '\n'+'RAM Total = ' + str(self.ram_stats) + ' MB\n'
+
+        # CPU informatiom
+        cpu_temp = self.cpu_temp
+        cpu_usage = self.cpu_usage
+
+        # RAM information
+        # Output is in kb, here I convert it in Mb for readability
+        ram_stats = self.ram_stats
+        ram_total = round(int(ram_stats[0]) / 1000, 1)
+        ram_used = round(int(ram_stats[1]) / 1000, 1)
+        ram_free = round(int(ram_stats[2]) / 1000, 1)
+
+        # Disk information
+        disk_stats = self.disk_space
+        disk_total = disk_stats[0]
+        disk_used = disk_stats[1]
+
+        info = 'CPU Temperature = ' + cpu_temp + '\n' + \
+            'CPU Use =' + cpu_usage + '\n' + \
+            'RAM Total = ' + str(ram_total) + 'MB' + '\n' + \
+            'RAM Used = ' + str(ram_used) + ' MB' + '\n' +\
+            'RAM Free = ' + str(ram_free) + ' MB' + '\n' +\
+            'DISK Total Space = ' + str(disk_total) + ' B' + '\n' +\
+            'DISK Used Space = ' + str(disk_used) + ' B' + '\n' +\
+
+
         return [
             {
                 'title': 'Machine',
@@ -54,7 +74,7 @@ class Machine(object):
     # Index 1: used disk space
     # Index 2: remaining disk space
     # Index 3: percentage of disk used
-    def getDiskSpace(self):
+    def get_diskspace(self):
         p = os.popen("df -h /")
         i = 0
         while 1:
