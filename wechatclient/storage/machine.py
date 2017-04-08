@@ -82,8 +82,3 @@ class Machine(object):
             if i == 2:
                 DISK_stats = (line.split()[1:5])
                 return DISK_stats[0], DISK_stats[1], DISK_stats[3]
-
-
-if __name__ == '__main__':
-    mac = Machine()
-print mac.ram_stats
