@@ -44,9 +44,9 @@ class BaseHandler(object):
                             "url": "http://byetimes.com/"
                         },
                         {
-                            "type": "click",
+                            "type": "view",
                             "name": "关于我们",
-                            "key": "http://suyafei.com/"
+                            "url": "http://suyafei.com/"
                         }
                     ]
                 }
