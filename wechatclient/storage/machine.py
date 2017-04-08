@@ -9,8 +9,8 @@ class Machine(object):
         self.cpu_temp = self.getcputemperature()
         self.cpu_usage = self.getcpuuse()
         self.ram_stats = self.getraminfo()
+        self.disk_stats = self.getraminfo()
         self.fast_data = self.fast_reply()
-        self.disk_space = self.get_diskspace()
 
     def fast_reply(self):
 
@@ -26,7 +26,7 @@ class Machine(object):
         ram_free = round(int(ram_stats[2]) / 1000, 1)
 
         # Disk information
-        disk_stats = self.disk_space
+        disk_stats = self.disk_stats
         disk_total = disk_stats[0]
         disk_used = disk_stats[1]
 
@@ -82,3 +82,8 @@ class Machine(object):
             if i == 2:
                 DISK_stats = (line.split()[1:5])
                 return DISK_stats[0], DISK_stats[1], DISK_stats[3]
+
+
+if __name__ == '__main__':
+    mac = Machine()
+    print mac.ram_stats
