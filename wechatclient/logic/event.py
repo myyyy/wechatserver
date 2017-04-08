@@ -43,11 +43,21 @@ class TextEvent(object):
         return reply.render()
 
 
+class ClickEvent(object):
+    """点击菜单拉取消息事件"""
+
+    def reply(self, msg):
+        data = Machine().fast_data
+        reply = TextReply(content=data, message=msg)
+        reply = create_reply(data, message=msg)
+        return reply.render()
+
+
 def get_localizer(event="subscribe", msg='msg'):
     """The factory method"""
     msg = None
     languages = dict(subscribe=SubscribeEvent, unsubscribe=UnsubscribeEvent,
-                     subscribe_scan=SubscribeScanEvent, text=TextEvent)
+                     subscribe_scan=SubscribeScanEvent, text=TextEvent, click=ClickEvent)
     return languages[event]()
 
 if __name__ == '__main__':
