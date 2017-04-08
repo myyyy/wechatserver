@@ -9,7 +9,7 @@ class Machine(object):
         self.cpu_temp = self.getcputemperature()
         self.cpu_usage = self.getcpuuse()
         self.ram_stats = self.getraminfo()
-        self.disk_stats = self.getraminfo()
+        self.disk_stats = self.get_diskspace()
         self.fast_data = self.fast_reply()
 
     def fast_reply(self):
@@ -27,8 +27,8 @@ class Machine(object):
 
         # Disk information
         disk_stats = self.disk_stats
-        disk_total = round(int(disk_stats[0]) / 1000, 1)
-        disk_used = round(int(disk_stats[1]) / 1000, 1)
+        disk_total = disk_stats[0]
+        disk_used = disk_stats[1]
 
         info = 'CPU Temperature = ' + cpu_temp + '\n' + \
             'CPU Use =' + cpu_usage + '\n' + \
