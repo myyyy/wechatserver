@@ -46,7 +46,7 @@ class BaseHandler(object):
                         {
                             "type": "view",
                             "name": "关于我们",
-                            "url": "http://suyafei.com/"
+                            "url": "http://www.suyafei.com/"
                         }
                     ]
                 }
