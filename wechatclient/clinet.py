@@ -12,6 +12,7 @@ from wechatpy.exceptions import InvalidSignatureException
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
+from logic import timetask as tt
 
 
 class IndexHandler(BaseHandler):
@@ -40,4 +41,7 @@ if __name__ == '__main__':
     )
     app.listen(1121)
     print('server start on 127.0.0.1:1121')
+    # 定时任务
+    timetask = tt.TimeTask()
+    timetask.doFirst()
     tornado.ioloop.IOLoop.instance().start()
