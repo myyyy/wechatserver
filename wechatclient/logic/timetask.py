@@ -37,4 +37,5 @@ class TimeTask(object):
         doFunc()
 if __name__ == '__main__':
     tt = TimeTask()
-    tt.doFirst()
+    while True:
+        tt.doFirst()
