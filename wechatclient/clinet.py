@@ -13,7 +13,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 from logic import timetask as tt
-
+TOKEN='12333'
 
 class IndexHandler(BaseHandler):
 
